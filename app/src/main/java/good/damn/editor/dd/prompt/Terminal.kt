@@ -28,6 +28,10 @@ class Terminal(
         builder
     )
 
+    private val cmdTail = CommandTail(
+        builder
+    )
+
     fun enter(
         prompt: String
     ) {
@@ -42,6 +46,12 @@ class Terminal(
         when (split[0]) {
             "rm" -> {
                 cmdRm.prompt(
+                    split,
+                    1
+                )
+            }
+            "tail" -> {
+                cmdTail.prompt(
                     split,
                     1
                 )
