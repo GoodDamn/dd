@@ -31,9 +31,11 @@ class CommandLs(
             ).path}$subPath"
         )
 
+        var i = 0
+
         file.listFiles()?.forEach {
             builder.appendMessage(
-                "${it.name}${if (it.isDirectory) "/" else ""}"
+                "$i: ${it.name}${if (it.isDirectory) "/" else ""}"
             )
             if (showAttrs) {
                 builder.appendMessage(
@@ -44,6 +46,7 @@ class CommandLs(
                 )
             }
             builder.appendMessage("----")
+            i++
         }
 
     }

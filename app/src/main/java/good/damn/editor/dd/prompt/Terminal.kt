@@ -32,6 +32,18 @@ class Terminal(
         builder
     )
 
+    private val cmdMkdir = CommandMkdir(
+        builder
+    )
+
+    private val cmdTouch = CommandTouch(
+        builder
+    )
+
+    private val cmdRename = CommandRename(
+        builder
+    )
+
     fun enter(
         prompt: String
     ) {
@@ -44,6 +56,24 @@ class Terminal(
         )
 
         when (split[0]) {
+            "rename" -> {
+                cmdRename.prompt(
+                    split,
+                    1
+                )
+            }
+            "touch" -> {
+                cmdTouch.prompt(
+                    split,
+                    1
+                )
+            }
+            "mkdir" -> {
+                cmdMkdir.prompt(
+                    split,
+                    1
+                )
+            }
             "rm" -> {
                 cmdRm.prompt(
                     split,
